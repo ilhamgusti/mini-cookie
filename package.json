@@ -1,0 +1,56 @@
+{
+    "name": "@ilhmgst/cookie",
+    "version": "1.0.4",
+    "description": "Super Simple Cookie for Modern Browser",
+    "main": "dist/index.modern.js",
+    "umd:main": "dist/index.umd.js",
+    "type": "module",
+    "module": "dist/index.modern.js",
+    "publishConfig": {
+        "source": "src/index.ts",
+        "main": "dist/index.js"
+    },
+    "private":false,
+    "source": "src/index.ts",
+    "types": "dist/index.d.ts",
+    "exports": {
+        "require": "./dist/index.umd.js", 
+        "default": "./dist/index.modern.js"
+    },
+    "homepage": "https://github.com/ilhamgusti",
+    "scripts": {
+        "dev": "microbundle watch -f umd,es,cjs,iife,modern,esm ",
+        "build": "microbundle -f umd,modern --sourcemap false --raw true",
+        "start": "microbundle -f umd,es,cjs,iife,modern,esm",
+        "test": "jest",
+        "size": "size-limit",
+        "analyze": "size-limit --why"
+    },
+    "size-limit": [
+        {
+            "path": "dist/index.js",
+            "limit": "5 KB"
+        },
+        {
+            "path": "dist/index.mjs",
+            "limit": "5 KB"
+        },
+        {
+            "path": "dist/index.umd.js",
+            "limit": "5 KB"
+        }
+    ],
+    "keywords": [
+        "cookie",
+        "lightweight cookie",
+        "cookies",
+        "library"
+    ],
+    "author": "Ilham Gusti <ilham.wibowo51@gmail.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "@size-limit/preset-small-lib": "^7.0.8",
+        "microbundle": "^0.15.0",
+        "size-limit": "^7.0.8"
+    }
+}
